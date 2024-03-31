@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Recommendation Company's Filter</title>
+</head>
+<body class="bg-purple-600 min-h-screen flex justify-center items-center">
+    <div class="max-w-xl w-full mx-auto p-8 bg-white rounded-md shadow-md">
+        <h1 class="text-2xl font-bold mb-6">Recommendation Company's Filter</h1>
+        
+        <form action="/recommend" method="post">
+            <label for="company_type" class="block text-gray-700 mb-2">Company Type:</label>
+            <select id="company_type" name="company_type" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500 mb-4">
+                <option value="">Select Company Type</option>
+                <option value="IT Services & Consulting">IT Services & Consulting</option>
+                <option value="Engineering & Construction">Engineering & Construction</option>
+                <option value="Auto Components">Auto Components</option>
+                <option value="Industrial Machinery">Industrial Machinery</option>
+                <option value="Pharma">Pharma</option>
+                <option value="Healthcare">Healthcare</option>
+                <option value="Education & Training">Education & Training</option>
+                <option value="Financial Services">Financial Services</option>
+                <option value="Software Product">Software Product</option>
+                <option value="Internet">Internet</option>
+                <option value="Real Estate">Real Estate</option>
+                <option value="Fashion & Textile">Fashion & Textile</option>
+                <option value="BPO">BPO</option>
+                <option value="Automobile">Automobile</option>
+                <option value="Recruitment">Recruitment</option>
+                <option value="Chemicals">Chemicals</option>
+                <option value="Retail">Retail</option>
+                <option value="Logistics">Logistics</option>
+                <option value="Food Processing">Food Processing</option>
+                <option value="Building Material">Building Material</option>
+                <option value="Power">Power</option>
+                <option value="EdTech">EdTech</option>
+                <option value="Hospitality">Hospitality</option>
+                <option value="Oil & Gas">Oil & Gas</option>
+                <option value="Telecom">Telecom</option>
+                <option value="Electronics Manufacturing">Electronics Manufacturing</option>
+                <option value="Consumer Electronics & Appliances">Consumer Electronics & Appliances</option>
+                <option value="FMCG">FMCG</option>
+                <option value="NBFC">NBFC</option>
+            </select>
+
+            <label for="rating" class="block text-gray-700 mb-2">Minimum Rating (1-5): <span id="display-rating" class="text-blue-500 font-bold">3.0</span></label>
+            <input type="range" id="rating" name="rating" min="1" max="5" step="0.1" class="w-full mb-2 appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-200 rounded-lg">
+            <p class="text-gray-500">Selected Rating: </p>
+            <script>
+                const ratingInput = document.getElementById('rating');
+                const displayRating = document.getElementById('display-rating');
+            
+                ratingInput.addEventListener('input', function() {
+                    displayRating.textContent = this.value;
+                });
+            </script>
+                       
+            <label for="age" class="block text-gray-700 mb-2">Minimum Age of Company (Years):</label>
+            <div class="flex items-center border border-gray-300 rounded-md focus-within:ring focus-within:border-blue-500 mb-4">
+                <input type="number" id="age" name="age" step="0.1" class="w-full py-2 px-4 rounded-l-md focus:outline-none" placeholder="Enter minimum age...">
+                <button type="button" class="bg-gray-200 text-gray-700 py-2 px-4 rounded-r-md focus:outline-none">Years</button>
+            </div>
+                       
+
+
+
+            <h2 class="text-xl font-bold mb-2">Positive Attributes must contain in the company</h2>
+
+            <input type="checkbox" id="pos_work_life_balance" name="pos_work_life_balance" value="1">
+            <label for="pos_work_life_balance">Work-Life Balance</label><br>
+            
+            <input type="checkbox" id="pos_company_culture" name="pos_company_culture" value="1">
+            <label for="pos_company_culture">Company Culture</label><br>
+            
+            <input type="checkbox" id="pos_appraisal" name="pos_appraisal" value="1">
+            <label for="pos_appraisal">Appraisal</label><br>
+            
+            <input type="checkbox" id="pos_learning" name="pos_learning" value="1">
+            <label for="pos_learning">Learning</label><br>
+            
+            <input type="checkbox" id="pos_work_satisfaction" name="pos_work_satisfaction" value="1">
+            <label for="pos_work_satisfaction">Work Satisfaction</label><br>
+            
+            <input type="checkbox" id="pos_salary_benefits" name="pos_salary_benefits" value="1">
+            <label for="pos_salary_benefits">Salary & Benefits</label><br>
+            
+            <input type="checkbox" id="pos_promotions" name="pos_promotions" value="1">
+            <label for="pos_promotions">Promotions</label><br>
+            
+            <input type="checkbox" id="pos_job_security" name="pos_job_security" value="1">
+            <label for="pos_job_security">Job Security</label><br>
+            
+            <input type="checkbox" id="pos_skill_development" name="pos_skill_development" value="1">
+            <label for="pos_skill_development">Skill Development</label><br>
+
+            <br>
+            <h2 class="text-xl font-bold mb-2">Negative Attributes should not be present in the company</h2>
+            <div class="flex items-center mb-4">
+                <h3 class="text-red-600 font-bold mr-2">NOTE:</h3>
+                <p class="text-xs text-gray-600">If you select in Negative, do not include these features in Negative.</p>
+            </div>
+            
+            
+            <input type="checkbox" id="con_work_life_balance" name="con_work_life_balance" value="1">
+            <label for="con_work_life_balance">Work-Life Balance</label><br>
+            
+            <input type="checkbox" id="con_company_culture" name="con_company_culture" value="1">
+            <label for="con_company_culture">Company Culture</label><br>
+            
+            <input type="checkbox" id="con_appraisal" name="con_appraisal" value="1">
+            <label for="con_appraisal">Appraisal</label><br>
+            
+            <input type="checkbox" id="con_learning" name="con_learning" value="1">
+            <label for="con_learning">Learning</label><br>
+            
+            <input type="checkbox" id="con_work_satisfaction" name="con_work_satisfaction" value="1">
+            <label for="con_work_satisfaction">Work Satisfaction</label><br>
+            
+            <input type="checkbox" id="con_salary_benefits" name="con_salary_benefits" value="1">
+            <label for="con_salary_benefits">Salary & Benefits</label><br>
+            
+            <input type="checkbox" id="con_promotions" name="con_promotions" value="1">
+            <label for="con_promotions">Promotions</label><br>
+            
+            <input type="checkbox" id="con_job_security" name="con_job_security" value="1">
+            <label for="con_job_security">Job Security</label><br>
+            
+            <input type="checkbox" id="con_skill_development" name="con_skill_development" value="1">
+            <label for="con_skill_development">Skill Development</label><br>
+    
+
+            <br>
+            <div class="flex justify-center">
+                <button type="submit" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-blue-300">
+                    Submit
+                </button>
+            </div>
+            
+            
+            
+        </form>
+    </div>
+</body>
+</html>

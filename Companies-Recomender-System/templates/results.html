@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommended Companies</title>
+</head>
+<body>
+    <h1>Recommended Companies</h1>
+    <ul>
+        {% for company in recommended_companies %}
+            <li>{{ company }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

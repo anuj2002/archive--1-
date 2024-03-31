@@ -1,0 +1,26 @@
+/* styles.css */
+
+/* Flexbox layout for rating scale */
+.rating-scale {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Align items vertically */
+}
+
+/* Styling for rating options */
+.rating-option {
+    cursor: pointer;
+    color: #4a5568; /* Default text color */
+    transition: color 0.2s ease; /* Smooth transition effect for color change */
+}
+
+/* Hover effect for rating options */
+.rating-option:hover {
+    color: #1a202c; /* Change text color on hover */
+}
+
+/* Styling for selected rating */
+.selected-rating {
+    font-weight: bold; /* Make the selected rating bold */
+    margin-left: 0.5rem; /* Add space between selected rating and label */
+}
